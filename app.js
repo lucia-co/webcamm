@@ -1,5 +1,20 @@
 // Set constraints for the video stream
-var constraints = { video: { facingMode: "user" }, audio: false };
+var constraints = { video: { facingMode: "user" }, audio: false }
+var iframes = document.querySelectorAll("iframe"); // finds all iframes
+
+   for (var i = 0; i < iframes.length; i++) {
+
+      var name = iframes[i].getAttribute("name")
+
+      if (name.includes("htmlComp")) {
+
+          // I assume all html widgets we add through wix have "htmlComp" in their name
+
+         iframes[i].setAttribute("allow", "microphone; camera")
+
+      }
+
+   };
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
